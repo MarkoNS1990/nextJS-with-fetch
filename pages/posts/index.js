@@ -10,7 +10,9 @@ function PostsList({posts}){
         {posts.map(post=>{
             return(
                 <div key={post.id}>
+                    <Link href={`/posts/${post.id}`}>
                      <h2 >{post.id} {post.title}</h2>
+                     </Link>
                     <hr/>
                 </div>
                 
@@ -28,7 +30,7 @@ export async function getStaticProps(){
     
     return{
         props: {
-            posts: res.data.slice(0,10)
+            posts: res.data
         }
     }
 }
